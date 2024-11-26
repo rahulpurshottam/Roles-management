@@ -27,7 +27,9 @@ const Main = () => {
               <button className="btn btn-outline-light me-2">Home</button>
             </li>
             <li className="nav-item">
-              <button className="btn btn-outline-light me-2">Signup</button>
+              <a href="/signup.html" className="btn btn-outline-light me-2" target="_blank" rel="noopener noreferrer">
+                Signup
+              </a>
             </li>
             <li className="nav-item">
               <button className="btn btn-outline-light">Logout</button>
