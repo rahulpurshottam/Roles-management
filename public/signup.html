@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="%PUBLIC_URL%/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>Login-VRV Security</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.0/lottie.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0858c8, #edebea);
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1100px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .animation-section {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+        }
+
+        .form-section {
+            width: 50%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .form-section h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .form-section p {
+            margin-bottom: 30px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .form-section p a {
+            color: #0858c8;
+            text-decoration: none;
+        }
+
+        .form-section p a:hover {
+            text-decoration: underline;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px 15px 15px 40px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            border-color: #0858c8;
+        }
+
+        .input-group i {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            color: #999;
+        }
+
+        .sign {
+            text-decoration: underline;
+        }
+
+        .fp {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #4c81cb;
+            text-align: right;
+        }
+
+        .fp:hover {
+            text-decoration: underline;
+        }
+
+        .remember-terms {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .check {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .form-section .login-btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background: linear-gradient(135deg, #0858c8, #edebea);
+            color: #fff;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .form-section .login-btn:hover {
+            opacity: 0.9;
+        }
+
+        .social-login {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .social-login p {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .social-login .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-login .social-btn {
+            width: 50px;
+            height: 50px;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .hbar {
+            width: 100%;
+            text-align: center;
+            border-bottom: 1px solid #777;
+            line-height: 0.1em;
+            margin: 10px 0 20px;
+        }
+
+        .hbar span {
+            background: #fff;
+            padding: 0 10px;
+        }
+
+        .social-login .social-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .social-login .facebook-btn {
+            background: #3b5998;
+        }
+
+        .social-login .google-btn {
+            background: #db4437;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .animation-section {
+                width: 100%;
+                height: 200px;
+            }
+
+            .form-section {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="animation-section" id="animation-container"></div>
+        <div class="form-section">
+            <h1>Login</h1>
+            <p>Don't have an account? <a href="#">Sign Up</a></p>
+            <form>
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <a class="fp" href="#">Forgot Password?</a>
+                <div class="remember-terms">
+                    <label class="check">
+                        <input type="checkbox"> Remember me
+                    </label>
+                    <label class="check">
+                        <input type="checkbox"> I agree to Terms and Conditions
+                    </label>
+                </div>
+                <button type="submit" class="login-btn">LOGIN</button>
+            </form>
+            <div class="social-login">
+                <p class="hbar"><span>Or login with</span></p>
+                <div class="social-buttons">
+                    <a href="#" class="social-btn facebook-btn">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-btn google-btn">
+                        <i class="fab fa-google"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        const animationContainer = document.getElementById('animation-container');
+        lottie.loadAnimation({
+            container: animationContainer,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: './Animation - 1732273098195.json'
+        });
+    </script>
+</body>
+
+</html>
